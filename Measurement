@@ -1,0 +1,39 @@
+package assignment_3;
+
+import java.util.Scanner;
+
+public class Measurement {
+	int kgs,grms;
+	static Measurement add(Measurement m1,Measurement m2){
+		Measurement m3=new Measurement();
+		m3.kgs=m1.kgs+m2.kgs;
+		int n=m1.grms+m2.grms;
+		if(n>=1000){
+			m3.kgs++;
+			n-=1000;
+		}
+		m3.grms=n;
+		return m3;
+	}
+	void display(){
+		System.out.println("Total weights in kgs " +kgs + "grms " +grms);
+	}
+	public static void main(String[] args) {
+		Measurement m1=new Measurement();
+		Measurement m2=new Measurement();
+		
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the first kgs");
+		m1.kgs=sc.nextInt();
+		System.out.println("Enter the first grms");
+		m1.grms=sc.nextInt();
+		System.out.println("Enter the second kgs");
+		m2.kgs=sc.nextInt();
+		System.out.println("Enter the second grms");
+		m2.grms=sc.nextInt();
+		m1=add(m1,m2);
+		m1.display();
+		sc.close();
+	}
+
+}
