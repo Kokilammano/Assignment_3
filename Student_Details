@@ -1,0 +1,76 @@
+package assignment_3;
+
+import java.util.Scanner;
+class Stu_Details {
+	int rollno,mark;
+	String name;
+	void roll_sort(Stu_Details s[]){
+		if(s[0].rollno>s[1].rollno){
+			Stu_Details temp;
+			temp=s[0];
+			s[0]=s[1];
+			s[1]=temp;
+		}
+		if(s[0].rollno>s[2].rollno){
+			Stu_Details temp;
+			temp=s[0];
+			s[0]=s[2];
+			s[2]=temp;
+		}
+		if(s[1].rollno>s[2].rollno){
+			Stu_Details temp;
+			temp=s[1];
+			s[1]=s[2];
+			s[2]=temp;
+		}
+	}
+	void mark_sort(Stu_Details s[]){
+		Stu_Details temp1;
+		if(s[0].mark<s[1].mark){
+			temp1=s[0];
+			s[0]=s[1];
+			s[1]=temp1;
+		}
+		if(s[0].mark<s[2].mark){
+			Stu_Details temp2;
+			temp2=s[0];
+			s[0]=s[2];
+			s[2]=temp2;
+		}
+		if(s[1].mark<s[2].mark){
+			Stu_Details temp3;
+			temp3=s[1];
+			s[1]=s[2];
+			s[2]=temp3;
+		}
+	}
+	void display(){
+		System.out.println("Name=" +name +" Rollno=" +rollno +" Mark=" +mark);
+	}
+}
+ class Student{
+	public static void main(String[] args) {
+		Stu_Details stu[]=new Stu_Details[3];
+		Scanner sc=new Scanner(System.in);
+		for(int i=0;i<3;i++){
+			stu[i]=new Stu_Details();
+			System.out.println("Enter the name,rollno,mark");
+			stu[i].name=sc.next();
+			stu[i].rollno=sc.nextInt();
+			stu[i].mark=sc.nextInt();
+		}
+		System.out.println("The details sorting according to the rollno");
+		stu[0].roll_sort(stu);
+		stu[0].display();
+		stu[1].display();
+		stu[2].display();
+
+		System.out.println("The details sorting according to the mark");
+		stu[0].mark_sort(stu);
+		stu[0].display();
+		stu[1].display();
+		stu[2].display();
+		sc.close();
+	}
+
+}
